@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Poppins', Courier, monospace;
+}
+
+.register input,
+button {
+  border-radius: 50px;
+}
+
+button {
+  cursor: pointer;
+}
+
+nav a {
+  padding: 10px 20px;
+  border-radius: 10px;
+}
