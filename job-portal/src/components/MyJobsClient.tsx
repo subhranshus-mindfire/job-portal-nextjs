@@ -5,11 +5,13 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import api from "@/services/api";
 import { Job } from "@/types/types";
+import { useModal } from "@/context/ModalContext";
 
 export default function MyJobsClient() {
   const { user } = useAuth();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
+  const { setShowJobModal } = useModal()
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -32,7 +34,15 @@ export default function MyJobsClient() {
 
   return (
     <div className="p-4 sm:p-6 md:p-8 mx-auto max-w-7xl">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-6">My Job Listings</h1>
+      <div className="flex justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-6">My Job Listings</h1>
+        <button
+          onClick={() => setShowJobModal(true)}
+          className="bg-gray-600 h-fit text-white py-2.5 px-4 rounded-full cursor-pointer text-base transition hover:scale-105"
+        >
+          Add New Job
+        </button>
+      </div>
 
       {jobs.length === 0 && (
         <p className="text-gray-600">You have not posted any jobs yet.</p>
