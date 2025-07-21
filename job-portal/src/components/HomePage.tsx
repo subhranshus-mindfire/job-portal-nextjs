@@ -16,7 +16,7 @@ export default function HomePage({ jobs: initialJobs }: { jobs: Job[] }) {
   const { showAlert } = useAlert();
   const { setShowLoginModal } = useModal();
 
-  const [jobs, setJobs] = useState<Job[]>(initialJobs);
+  const [jobs] = useState<Job[]>(initialJobs);
   const [sortBy, setSortBy] = useState<
     "date_desc" | "date_asc" | "title_asc" | "title_desc"
   >("date_desc");

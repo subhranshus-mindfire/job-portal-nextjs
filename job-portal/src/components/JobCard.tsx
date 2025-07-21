@@ -12,7 +12,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
   const logoUrl = `https://img.logo.dev/${companyName}.com?token=pk_U5pZvgj7Ty2ZWkob2YkBig`;
 
   return (
-    <div className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-md transition flex flex-col gap-2">
+    <div className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-md transition flex flex-col gap-2 hover:scale-105 hover:cursor-pointer duration-200" onClick={() => onView(job)}>
       <div className="absolute top-4 right-4">
         <Image
           src={logoUrl}
@@ -38,12 +38,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
         <p className="text-sm text-gray-500">
           Posted on {new Date(job.createdAt).toISOString().slice(0, 10)}
         </p>
-        <button
-          className="px-4 py-2 bg-gray-600 text-white text-sm lg:text-base rounded hover:bg-gray-700 transition"
-          onClick={() => onView(job)}
-        >
-          View Details
-        </button>
+
       </div>
     </div>
   );
