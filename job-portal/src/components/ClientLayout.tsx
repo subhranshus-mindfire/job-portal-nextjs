@@ -10,6 +10,7 @@ import JobModal from "./JobModal";
 import Alert from "./Alert";
 import { AlertProvider } from "@/context/AlertContext";
 import { ModalProvider, useModal } from "@/context/ModalContext";
+import Image from "next/image";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -119,9 +120,11 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
             <div className="relative">
               <button
                 onClick={() => setShowProfileMenu(!showProfileMenu)}
-                className="font-medium text-gray-700 hover:text-gray-600"
+                className="font-medium text-gray-700 hover:text-gray-600 flex items-center"
               >
-                Hi, {user.name} ▼
+
+                <div>Hi, {user.name} <Image src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"} alt="Avatar" height={100} width={100} className="w-10 h-10 object-contain rounded-full inline" /></div>
+                
               </button>
               {showProfileMenu && (
                 <div className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg flex flex-col">
