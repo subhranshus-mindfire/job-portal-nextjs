@@ -1,15 +1,13 @@
-
 import React, { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import api from "../services/api";
 
 export interface User {
-  token: string;
   _id: string;
   name: string;
   email: string;
   role: "employer" | "applicant";
-  role_id: string
+  role_id: string;
 }
 
 interface AuthContextType {
@@ -17,7 +15,7 @@ interface AuthContextType {
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -29,13 +27,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await api.get("/auth/me");
-        console.log(res)
+        const res = await api.get("/auth/me", { withCredentials: true });
         setUser(res.data);
       } catch {
         setUser(null);
       } finally {
-        console.log(user, "now its")
         setLoading(false);
       }
     };
@@ -43,19 +39,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const res = await api.post("/auth/login", { email, password });
-    console.log(res)
-    localStorage.setItem("token", res.data.token);
-    const result = res.data.data
-    result.role_id = res.data.role_id
-    setUser(result);
-
+    await api.post(
+      "/auth/login",
+      { email, password },
+      { withCredentials: true }
+    );
+    const res = await api.get("/auth/me", { withCredentials: true });
+    setUser(res.data);
   };
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
+  const logout = async () => {
+    try {
+      await api.post("/auth/logout", {}, { withCredentials: true });
+      setUser(null);
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
+
 
   return (
     <AuthContext.Provider value={{ user, setUser, loading, login, logout }}>
