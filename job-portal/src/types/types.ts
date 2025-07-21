@@ -33,7 +33,8 @@ export interface Applicant {
 
 export interface Application {
   _id: string;
-  job: string;
-  applicant: Applicant;
-  status: string;
+  applicant?: Applicant;
+  status: "interview" | "hired" | "rejected" | "applied";
+  job: Job;
 }
+

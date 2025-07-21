@@ -1,7 +1,29 @@
-import ApplicantsClient from "@/components/ApplicantsClient";
 
-export default function ApplicantsPage({ params }: { params: { id: string } }) {
-  return (
-    <ApplicantsClient jobId={params.id} />
-  );
+import ApplicantsClient from "@/components/ApplicantsClient";
+import { getServerApi } from "@/lib/getServerApi";
+
+interface Applicant {
+  _id: string;
+  user: {
+    _id: string;
+    name: string;
+    email: string;
+    phone: string;
+  };
+  skills: string;
+}
+
+interface Application {
+  _id: string;
+  job: string;
+  applicant: Applicant;
+  status: string;
+}
+
+export default async function ApplicantsPage({ params }: { params: { id: string }; }) {
+  const jobId = params.id;
+  const api = getServerApi()
+  const res = await api.get(`/jobs/${jobId}/applicants`);
+  const applications: Application[] = res.data.data;
+  return <ApplicantsClient initialApplications={applications} />;
 }

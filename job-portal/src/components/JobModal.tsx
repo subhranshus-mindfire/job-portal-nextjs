@@ -37,6 +37,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
 
       if (res.data.success) {
         showAlert("Job Added", "success")
+        onClose()
       } else {
         showAlert("Failed to Post Job.", "error")
       }

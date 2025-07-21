@@ -49,8 +49,9 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
       <Alert />
 
       <aside
-        className={`fixed lg:relative h-full lg:h-screen z-35 top-0 left-0 w-64 bg-white flex flex-col justify-between transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-          }`}
+        className={`fixed top-0 left-0 h-screen w-64 bg-white z-40 flex flex-col justify-between transform transition-transform duration-200
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+          `}
       >
         <div>
           <div className="flex justify-between items-center px-6 py-5 text-2xl font-bold">
@@ -85,7 +86,7 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
         {user ? (
           <div className="px-6 py-4 flex flex-col gap-2">
             <Link
-              href="/account"
+              href="/my-profile"
               className="flex items-center gap-2 p-2 rounded text-gray-700 hover:bg-gray-200"
             >
               <i className="fa fa-user"></i> My Profile
@@ -144,9 +145,9 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
 
               </button>
               {showProfileMenu && (
-                <div className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg flex flex-col">
+                <div className="absolute right-0 top-10 mt-2 w-40 bg-white border rounded shadow-lg flex flex-col">
                   <Link
-                    href="/account"
+                    href="/my-profile"
                     className="px-4 py-2 text-gray-700 hover:bg-gray-100"
                     onClick={() => setShowProfileMenu(false)}
                   >
@@ -179,7 +180,7 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
           )}
         </header>
 
-        <main className="flex-1 px-6 py-6 bg-gray-100 mt-10 lg:mt-14">{children}</main>
+        <main className="flex-1 px-6 py-6 bg-gray-100 mt-10 lg:mt-14 lg:ml-64">{children}</main>
 
         <footer className="bg-gray-100 text-center py-4 text-sm text-gray-600">
           &copy; 2025 JobPortal. All rights reserved.
