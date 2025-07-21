@@ -71,7 +71,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
   };
 
   return (
-    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-40 flex justify-center items-center z-40 register px-4 md:mx-0 max-h-screen">
+    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-40 flex justify-center items-center z-40 register px-4 lg:mx-0 max-h-screen">
       <div className="bg-white rounded-xl p-8 w-full max-w-lg relative">
         <button
           onClick={onClose}

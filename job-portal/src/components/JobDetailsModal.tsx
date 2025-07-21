@@ -45,7 +45,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
   }, [user, job._id]);
 
   return (
-    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-50 flex justify-center items-center z-40 px-3 md:px-0">
+    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-50 flex justify-center items-center z-40 px-3 lg:px-0">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl relative">
         <button
           onClick={onClose}

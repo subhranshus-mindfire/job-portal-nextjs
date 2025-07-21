@@ -33,7 +33,7 @@ export default function MyJobsClient() {
   if (loading) return <p className="p-8">Loading jobs...</p>;
 
   return (
-    <div className="p-4 sm:p-6 md:p-8 mx-auto">
+    <div className="p-4 sm:p-6 lg:p-8 mx-auto">
       <div className="flex justify-between">
         <h1 className="text-2xl sm:text-3xl font-bold mb-6">My Job Listings</h1>
         <button

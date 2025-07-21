@@ -22,15 +22,15 @@ const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
         />
       </div>
 
-      <h2 className="text-lg md:text-xl font-bold">{job.job_role}</h2>
-      <h3 className="text-base md:text-lg font-semibold text-gray-600">{job.employer.user.name}</h3>
+      <h2 className="text-lg lg:text-xl font-bold">{job.job_role}</h2>
+      <h3 className="text-base lg:text-lg font-semibold text-gray-600">{job.employer.user.name}</h3>
 
-      <p className="text-gray-600 text-sm md:text-base">
+      <p className="text-gray-600 text-sm lg:text-base">
         <i className="fa-solid fa-location-dot mr-1"></i>
         {job.location ? job.location : "Remote"}
       </p>
 
-      <p className="text-gray-700 text-sm md:text-base overflow-hidden text-ellipsis line-clamp-3 hidden md:block">
+      <p className="text-gray-700 text-sm lg:text-base overflow-hidden text-ellipsis line-clamp-3 hidden lg:block">
         {job.description.slice(0, 120)}...
       </p>
 
@@ -39,7 +39,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
           Posted on {new Date(job.createdAt).toISOString().slice(0, 10)}
         </p>
         <button
-          className="px-4 py-2 bg-gray-600 text-white text-sm md:text-base rounded hover:bg-gray-700 transition"
+          className="px-4 py-2 bg-gray-600 text-white text-sm lg:text-base rounded hover:bg-gray-700 transition"
           onClick={() => onView(job)}
         >
           View Details

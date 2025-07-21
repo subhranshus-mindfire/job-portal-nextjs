@@ -63,11 +63,11 @@ export default function HomePage({ jobs: initialJobs }: { jobs: Job[] }) {
   return (
     <div className="min-h-screen flex flex-col p-4">
       <header className="flex flex-col gap-4 mb-6">
-        <h1 className="text-3xl font-bold text-center md:text-left">
+        <h1 className="text-2xl font-bold text-center lg:text-left">
           Job Listings
         </h1>
 
-        <div className="flex flex-wrap md:justify-between justify-center gap-2">
+        <div className="flex flex-wrap lg:justify-between justify-center gap-2">
           <div className="flex gap-2">
             {["Hybrid", "Remote", "OnSite"].map((type) => (
               <button
@@ -97,7 +97,7 @@ export default function HomePage({ jobs: initialJobs }: { jobs: Job[] }) {
       </header>
 
       <main className="flex-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredJobs.map((job) => (
             <JobCard
               key={job._id}

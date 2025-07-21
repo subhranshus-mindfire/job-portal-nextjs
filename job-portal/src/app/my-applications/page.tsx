@@ -47,7 +47,7 @@ export default function MyApplications() {
   }, [user]);
 
   return (
-    <div className="p-4 md:p-8 md:mx-20">
+    <div className="p-4 lg:p-8 lg:mx-20">
       <h1 className="text-3xl font-bold mb-6 text-center">My Applications</h1>
 
       {error && <p className="text-red-600">{error}</p>}
@@ -56,7 +56,7 @@ export default function MyApplications() {
         <p className="text-gray-600">You have not applied to any jobs yet.</p>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {applications.map((app) => {
           const employerName = app.job.employer?.user?.name
             ?.replace(/\s+/g, "")

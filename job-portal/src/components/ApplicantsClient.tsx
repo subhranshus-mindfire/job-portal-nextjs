@@ -62,13 +62,13 @@ export default function ApplicantsClient({ jobId }: { jobId: string }) {
   if (loading) return <p className="p-8 text-center">Loading applicants...</p>;
 
   return (
-    <div className="p-4 md:p-8 mx-auto max-w-6xl md:max-w-none md:mx-20">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6">Applicants</h1>
+    <div className="p-4 lg:p-8 mx-auto max-w-6xl lg:max-w-none lg:mx-20">
+      <h1 className="text-2xl lg:text-3xl font-bold mb-6">Applicants</h1>
 
       {applications.length === 0 ? (
         <p className="text-gray-600 text-sm">No applicants yet.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-3 gap-6">
           {applications.map((application) => (
             <div
               key={application._id}

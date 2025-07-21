@@ -49,14 +49,14 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
       <Alert />
 
       <aside
-        className={`fixed md:relative h-full md:h-screen z-35 top-0 left-0 w-64 bg-white flex flex-col justify-between transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        className={`fixed lg:relative h-full lg:h-screen z-35 top-0 left-0 w-64 bg-white flex flex-col justify-between transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }`}
       >
         <div>
           <div className="flex justify-between items-center px-6 py-5 text-2xl font-bold">
             <Link href="/">JobPortal</Link>
             <button
-              className="md:hidden text-2xl"
+              className="lg:hidden text-2xl"
               onClick={() => setSidebarOpen(false)}
             >
               ✕
@@ -82,7 +82,7 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
 
-        {user && (
+        {user ? (
           <div className="px-6 py-4 flex flex-col gap-2">
             <Link
               href="/account"
@@ -97,34 +97,51 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
               <i className="fa fa-sign-out-alt"></i> Logout
             </button>
           </div>
+        ) : (
+          <div className="px-6 py-4 flex-col gap-2 flex md:hidden">
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="border-2 border-gray-600 text-gray-600 px-4 py-2 rounded-full hover:border-gray-700"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => setShowRegisterModal(true)}
+              className="border bg-gray-600 text-white px-4 py-2 rounded-full hover:bg-gray-700"
+            >
+              Register
+            </button>
+          </div>
         )}
       </aside>
 
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-[rgb(0,0,0,0.5)] bg-opacity-40 z-30 md:hidden"
+          className="fixed inset-0 bg-[rgb(0,0,0,0.5)] bg-opacity-40 z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       <div className="flex-1 flex flex-col ml-0">
-        <header className="bg-white px-6 py-4 flex justify-between items-center shadow">
+        <header className="fixed top-0 left-0 lg:left-64 w-full lg:w-[calc(100%-16rem)] bg-white px-6 py-4 flex justify-between items-center shadow z-20">
+
+
+          <h1 className="font-bold text-3xl lg:hidden">Job Portal</h1>
           <button
-            className="md:invisible text-2xl"
+            className="lg:invisible text-2xl"
             onClick={() => setSidebarOpen(true)}
           >
             <i className="fa fa-bars"></i>
           </button>
-
           {user ? (
-            <div className="relative">
+            <div className="relative hidden lg:flex">
               <button
                 onClick={() => setShowProfileMenu(!showProfileMenu)}
-                className="font-medium text-gray-700 hover:text-gray-600 flex items-center"
+                className="font-medium text-gray-700 hover:text-gray-600  items-center"
               >
 
                 <div>Hi, {user.name} <Image src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"} alt="Avatar" height={100} width={100} className="w-10 h-10 object-contain rounded-full inline" /></div>
-                
+
               </button>
               {showProfileMenu && (
                 <div className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg flex flex-col">
@@ -145,7 +162,7 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
               )}
             </div>
           ) : (
-            <div className="flex gap-4">
+            <div className="gap-4 hidden lg:flex">
               <button
                 onClick={() => setShowLoginModal(true)}
                 className="border-2 border-gray-600 text-gray-600 px-4 py-2 rounded-full hover:border-gray-700"
@@ -162,7 +179,7 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
           )}
         </header>
 
-        <main className="flex-1 px-6 py-6 bg-gray-100">{children}</main>
+        <main className="flex-1 px-6 py-6 bg-gray-100 mt-10 lg:mt-14">{children}</main>
 
         <footer className="bg-gray-100 text-center py-4 text-sm text-gray-600">
           &copy; 2025 JobPortal. All rights reserved.
