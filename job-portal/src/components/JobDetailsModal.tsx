@@ -45,7 +45,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
   }, [user, job._id]);
 
   return (
-    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-50 flex justify-center items-center z-10 px-3 md:px-0">
+    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-50 flex justify-center items-center z-40 px-3 md:px-0">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl relative">
         <button
           onClick={onClose}
@@ -84,7 +84,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
               disabled={hasApplied}
               className={`w-full py-2 rounded text-white ${hasApplied
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
+                : "bg-gray-600 hover:bg-gray-700"
                 }`}
             >
               {hasApplied ? "Already Applied" : "Apply Now"}
@@ -97,7 +97,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
             onClose();
             setShowLoginModal(true);
           }}
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700"
         >
           Login To Proceed
         </button>}

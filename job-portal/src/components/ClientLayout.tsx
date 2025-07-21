@@ -48,7 +48,7 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
       <Alert />
 
       <aside
-        className={`fixed h-full md:relative z-40 top-0 left-0 w-64 bg-white flex flex-col justify-between transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        className={`fixed md:relative h-full z-35 top-0 left-0 w-64 bg-white flex flex-col justify-between transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
           }`}
       >
         <div>

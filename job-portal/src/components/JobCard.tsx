@@ -39,7 +39,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
           Posted on {new Date(job.createdAt).toISOString().slice(0, 10)}
         </p>
         <button
-          className="px-4 py-2 bg-blue-600 text-white text-sm md:text-base rounded hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-gray-600 text-white text-sm md:text-base rounded hover:bg-gray-700 transition"
           onClick={() => onView(job)}
         >
           View Details

@@ -61,7 +61,7 @@ export default function MyJobsClient() {
             </p>
             <Link
               href={`/jobs/${job._id}/applicants`}
-              className="text-blue-600 font-semibold hover:underline text-sm"
+              className="text-gray-600 font-semibold hover:underline text-sm"
             >
               Applicants: {job?.applicants?.length}
             </Link>

@@ -40,7 +40,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
       } else {
         showAlert("Failed to Post Job.", "error")
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       if (err != undefined) showAlert(err?.response?.data.message, "error")
     }
@@ -65,7 +65,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
           <label className="block mb-2 font-semibold">Job Role</label>
           <input
             type="text"
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={jobRole}
             onChange={(e) => setJobRole(e.target.value)}
             required
@@ -73,7 +73,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
 
           <label className="block mb-2 font-semibold">Description</label>
           <textarea
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -82,7 +82,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
 
           <label className="block mb-2 font-semibold">Job Type</label>
           <select
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={jobType}
             onChange={(e) =>
               setJobType(e.target.value as "Hybrid" | "Remote" | "OnSite")
@@ -99,7 +99,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
               <label className="block mb-2 font-semibold">Location</label>
               <input
                 type="text"
-                className="w-full mb-6 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mb-6 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -108,7 +108,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700"
           >
             Post Job
           </button>

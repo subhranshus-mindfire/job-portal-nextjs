@@ -71,7 +71,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
   };
 
   return (
-    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-40 flex justify-center items-center z-3 register px-4 md:mx-0 max-h-screen">
+    <div className="fixed inset-0 bg-[rgb(0,0,0,0.4)] bg-opacity-40 flex justify-center items-center z-40 register px-4 md:mx-0 max-h-screen">
       <div className="bg-white rounded-xl p-8 w-full max-w-lg relative">
         <button
           onClick={onClose}
@@ -90,7 +90,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
           <input
             type="text"
             placeholder="Enter your full name"
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -100,7 +100,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
           <input
             type="email"
             placeholder="you@example.com"
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -110,7 +110,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
           <input
             type="tel"
             placeholder="e.g. +91 1234567890"
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
@@ -118,7 +118,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
 
           <label className="block mb-2 font-semibold">Role</label>
           <select
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={role}
             onChange={(e) => setRole(e.target.value as "employer" | "applicant")}
             required
@@ -133,7 +133,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
               <input
                 type="text"
                 placeholder="e.g. JavaScript, React, Node.js"
-                className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
                 value={skills}
                 onChange={(e) => setSkills(e.target.value)}
                 required
@@ -145,7 +145,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
           <input
             type="password"
             placeholder="Create a strong password"
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -155,7 +155,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
           <input
             type="password"
             placeholder="Re-enter your password"
-            className="w-full mb-6 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-6 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
@@ -163,7 +163,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700"
           >
             Register
           </button>
@@ -174,7 +174,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose, setShowLoginModa
           <button onClick={() => {
             setShowLoginModal(true);
             onClose();
-          }} className="w-full border border-blue-600 text-blue-600 rounded-full py-2 hover:bg-gray-100 mt-2 cursor-pointer">
+          }} className="w-full border border-gray-600 text-gray-600 rounded-full py-2 hover:bg-gray-100 mt-2 cursor-pointer">
             Login
           </button>
         </form>

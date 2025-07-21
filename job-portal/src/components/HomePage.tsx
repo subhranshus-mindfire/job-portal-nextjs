@@ -61,43 +61,42 @@ export default function HomePage({ jobs: initialJobs }: { jobs: Job[] }) {
     });
 
   return (
-    <div className="min-h-auto flex flex-col md:flex-row">
-      <aside className="w-full md:w-64 bg-white p-6 mt-3 hidden md:block">
-        <h2 className="text-xl font-semibold mb-4">Filter By</h2>
-        <div className="space-y-2">
-          {["Hybrid", "Remote", "OnSite"].map((type) => (
-            <button
-              key={type}
-              className={`block w-full text-left px-4 py-2 rounded ${
-                filterType === type
-                  ? "bg-blue-600 text-white"
-                  : "hover:bg-gray-200"
-              }`}
-              onClick={() => handleFilter(type as Job["job_type"])}
-            >
-              <span className="ms-3 text-lg">{type}</span>
-            </button>
-          ))}
-        </div>
-      </aside>
+    <div className="min-h-screen flex flex-col p-4">
+      <header className="flex flex-col gap-4 mb-6">
+        <h1 className="text-3xl font-bold text-center md:text-left">
+          Job Listings
+        </h1>
 
-      <main className="flex-1 p-1 md:p-6">
-        <header className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4 mt-3">
-          <h1 className="text-2xl font-bold text-center">Job Listings</h1>
-          <div className="flex justify-center">
-            <select
-              value={sortBy}
-              onChange={handleSort}
-              className="p-2 rounded text-center"
-            >
-              <option value="date_desc">Sort By Date (Newest First)</option>
-              <option value="date_asc">Sort By Date (Oldest First)</option>
-              <option value="title_asc">Sort By Title (A-Z)</option>
-              <option value="title_desc">Sort By Title (Z-A)</option>
-            </select>
+        <div className="flex flex-wrap md:justify-between justify-center gap-2">
+          <div className="flex gap-2">
+            {["Hybrid", "Remote", "OnSite"].map((type) => (
+              <button
+                key={type}
+                className={`px-3 py-0.5 text-base rounded-full border ${filterType === type
+                  ? "bg-gray-600 text-white border-gray-600"
+                  : "border-gray-400 text-gray-700 hover:bg-gray-200"
+                  }`}
+                onClick={() => handleFilter(type as Job["job_type"])}
+              >
+                {type}
+              </button>
+            ))}
           </div>
-        </header>
 
+          <select
+            value={sortBy}
+            onChange={handleSort}
+            className="p-2 rounded"
+          >
+            <option value="date_desc">Sort By Date (Newest First)</option>
+            <option value="date_asc">Sort By Date (Oldest First)</option>
+            <option value="title_asc">Sort By Title (A-Z)</option>
+            <option value="title_desc">Sort By Title (Z-A)</option>
+          </select>
+        </div>
+      </header>
+
+      <main className="flex-1">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredJobs.map((job) => (
             <JobCard
