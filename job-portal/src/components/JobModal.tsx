@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import api from "../services/api";
 import { useAlert } from "../context/AlertContext";
+import { useRouter } from "next/navigation";
+
 
 interface JobModalProps {
   onClose: () => void;
@@ -14,6 +16,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const router = useRouter()
 
   const { showAlert } = useAlert()
 
@@ -38,6 +41,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
       if (res.data.success) {
         showAlert("Job Added", "success")
         onClose()
+        router.push("/")
       } else {
         showAlert("Failed to Post Job.", "error")
       }

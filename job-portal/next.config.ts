@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
         hostname: 'img.freepik.com',
       },
     ],
-  },
+  }
 };
 
 export default nextConfig;

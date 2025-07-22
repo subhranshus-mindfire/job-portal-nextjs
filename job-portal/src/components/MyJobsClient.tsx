@@ -90,7 +90,7 @@ export default function MyJobsClient({ jobs }: { jobs: Job[] }) {
               </p>
             )}
             <p className="text-xs sm:text-sm text-gray-500 mb-2">
-              Posted: {new Date(job.createdAt).toLocaleDateString()}
+              Posted: {new Date(job.createdAt).toISOString().slice(0, 10)} 
             </p>
             <Link
               href={`/jobs/${job._id}/applicants`}
