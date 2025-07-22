@@ -20,11 +20,11 @@ interface Application {
   status: string;
 }
 
-type Params = Promise<{ params: {id: string }}>
+type Params = Promise<{id: string }>
 
 export default async function ApplicantsPage(props: { params: Params }) {
   const params = await props.params;
-  const jobId = params.params.id;
+  const jobId = params.id;
   const api = getServerApi();
   const res = await api.get(`/jobs/${jobId}/applicants`);
   const applications: Application[] = res.data.data;

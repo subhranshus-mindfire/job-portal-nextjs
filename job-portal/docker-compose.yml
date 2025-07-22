@@ -6,9 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile 
     container_name: job_portal_frontend
+    environment:
+    - NEXT_PUBLIC_API_URL=http://backend:5000/api
     restart: always
     ports:
       - "3000:3000"
+    depends_on:
+      - backend
  
 
   nginx_frontend:

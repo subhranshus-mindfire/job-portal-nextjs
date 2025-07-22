@@ -12,15 +12,11 @@ export default async function MyApplicationsPage() {
     const userRes = await api.get("/auth/me");
     const user = userRes.data;
 
-    if (!user?.role_id) {
-      redirect("/login");
-    }
 
     const res = await api.get(`/applications/applicant/${user.role_id}`);
     applications = res.data.data;
   } catch (error) {
     console.error(error);
-    redirect("/login"); 
   }
 
   return <MyApplicationsClient applications={applications} />;

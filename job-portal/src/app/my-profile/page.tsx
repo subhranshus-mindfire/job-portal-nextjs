@@ -8,14 +8,8 @@ export default async function ProfilePage() {
   try {
     const res = await api.get("/auth/me");
     const user = res.data;
-
-    if (!user) {
-      redirect("/login");
-    }
-
     return <MyProfileClient user={user} />;
   } catch (err) {
     console.error(err);
-    redirect("/login");
   }
 }

@@ -12,15 +12,10 @@ export default async function MyJobsPage() {
     const userRes = await api.get("/auth/me");
     const user = userRes.data;
 
-    if (!user?.role_id) {
-      redirect("/login");
-    }
-
     const res = await api.get(`/jobs/my/${user.role_id}`);
     jobs = res.data.data;
   } catch (error) {
     console.error(error);
-    redirect("/login");
   }
 
   return <MyJobsClient jobs={jobs} />;
