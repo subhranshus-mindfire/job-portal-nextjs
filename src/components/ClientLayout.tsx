@@ -17,14 +17,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <AuthProvider>
       <AlertProvider>
         <ModalProvider>
-          <LayoutShell>{children}</LayoutShell>
+          <Layout>{children}</Layout>
         </ModalProvider>
       </AlertProvider>
     </AuthProvider>
   );
 }
 
-function LayoutShell({ children }: { children: React.ReactNode }) {
+function Layout({ children }: { children: React.ReactNode }) {
   const { user, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();

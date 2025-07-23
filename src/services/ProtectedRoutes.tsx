@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 
 interface ProtectedRouteProps {
@@ -15,7 +15,6 @@ export default function ProtectedRoute({ children, role }: ProtectedRouteProps) 
     return <div>Loading...</div>;
   }
 
-  console.log(user, !user)
   if (!user) {
     router.push("unauthenticated")
     return

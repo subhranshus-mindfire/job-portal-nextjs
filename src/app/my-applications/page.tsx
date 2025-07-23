@@ -1,5 +1,4 @@
 import MyApplicationsClient from "@/components/MyApplicationsClient";
-import { redirect } from "next/navigation";
 import { Application } from "@/types/types";
 import { getServerApi } from "@/lib/getServerApi";
 
