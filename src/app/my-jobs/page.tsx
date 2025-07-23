@@ -1,6 +1,5 @@
 import MyJobsClient from "@/components/MyJobsClient";
 import { getServerApi } from "@/lib/getServerApi";
-import { redirect } from "next/navigation";
 import { Job } from "@/types/types";
 
 export default async function MyJobsPage() {
@@ -18,5 +17,5 @@ export default async function MyJobsPage() {
     console.error(error);
   }
 
-  return <MyJobsClient jobs={jobs} />;
+  return (<MyJobsClient jobs={jobs} />)
 }

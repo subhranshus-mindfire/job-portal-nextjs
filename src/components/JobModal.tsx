@@ -33,9 +33,6 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, employerId }) => {
         job_type: jobType,
         location
       };
-
-      console.log(payload)
-
       const res = await api.post("/jobs", payload);
 
       if (res.data.success) {
