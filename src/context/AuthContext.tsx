@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import { getServerApi } from "@/lib/getServerApi";
+import api from "../services/api";
 
 export interface User {
   _id: string;
@@ -23,8 +23,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-
-  const api = getServerApi()
 
   useEffect(() => {
     const checkAuth = async () => {
