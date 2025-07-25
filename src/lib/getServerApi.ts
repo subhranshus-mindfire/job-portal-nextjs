@@ -6,7 +6,7 @@ export function getServerApi() {
   const cookieHeader = cookieStore.toString();
 
   const instance = axios.create({
-    baseURL: `${process.env.BACKEND_URL}/api`,
+    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`,
     headers: {
       Cookie: cookieHeader,
     },
