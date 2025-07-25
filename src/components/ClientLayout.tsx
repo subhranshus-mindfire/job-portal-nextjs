@@ -141,7 +141,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 className="font-medium text-gray-700 hover:text-gray-600  items-center"
               >
 
-                <div>Hi, {user.name} <Image src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"} alt="Avatar" height={100} width={100} className="w-10 h-10 object-contain rounded-full inline" /></div>
+                <div>Hi, {user?.name} <Image src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"} alt="Avatar" height={100} width={100} className="w-10 h-10 object-contain rounded-full inline" /></div>
 
               </button>
               {showProfileMenu && (

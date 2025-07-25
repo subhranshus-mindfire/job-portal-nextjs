@@ -8,7 +8,7 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
-  const companyName = job.employer.user.name.replace(/\s+/g, "").toLowerCase();
+  const companyName = job.employer?.user.name.replace(/\s+/g, "").toLowerCase();
   const logoUrl = `https://img.logo.dev/${companyName}.com?token=pk_U5pZvgj7Ty2ZWkob2YkBig`;
 
   return (
@@ -16,14 +16,14 @@ const JobCard: React.FC<JobCardProps> = ({ job, onView }) => {
       <div className="absolute top-4 right-4">
         <Image
           src={logoUrl}
-          alt={job.employer.user.name}
+          alt={job.employer?.user.name}
           className="w-10 h-10 object-contain rounded-full"
           width={100} height={100}
         />
       </div>
 
       <h2 className="text-lg lg:text-xl font-bold">{job.job_role}</h2>
-      <h3 className="text-base lg:text-lg font-semibold text-gray-600">{job.employer.user.name}</h3>
+      <h3 className="text-base lg:text-lg font-semibold text-gray-600">{job.employer?.user.name}</h3>
 
       <p className="text-gray-600 text-sm lg:text-base">
         <i className="fa-solid fa-location-dot mr-1"></i>
