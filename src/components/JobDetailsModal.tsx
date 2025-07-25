@@ -23,7 +23,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
 
   const [hasApplied, setHasApplied] = useState(false);
 
-  const companyName = job.employer.user.name.replace(/\s+/g, "").toLowerCase();
+  const companyName = job.employer?.user.name.replace(/\s+/g, "").toLowerCase();
   const logoUrl = `https://img.logo.dev/${companyName}.com?token=pk_U5pZvgj7Ty2ZWkob2YkBig`;
 
   useEffect(() => {
@@ -56,14 +56,14 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
 
         <Image
           src={logoUrl}
-          alt={job.employer.user.name}
+          alt={job.employer?.user.name}
           className="w-12 h-12 object-contain mb-4"
           width={100} height={100}
         />
 
         <h2 className="text-2xl font-bold mb-2">{job.job_role}</h2>
         <h3 className="text-lg font-semibold text-gray-600 mb-2">
-          {job.employer.user.name}
+          {job.employer?.user.name}
         </h3>
 
         <p className="text-gray-600 mb-2">
